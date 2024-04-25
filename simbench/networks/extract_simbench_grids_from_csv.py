@@ -271,8 +271,9 @@ def _get_extracted_csv_data_from_dict(csv_data, relevant_subnets):
 
 def get_extracted_csv_data(relevant_subnets, input_path, sep=";", **kwargs):
     """ Returns extracted csv data of the requested SimBench grid
-    (per default from all SimBench grids csv data).
-    **kwargs are ignored.
+    
+    TODO: clarify this -> (per default from all SimBench grids csv data).
+    TODO: use these -> **kwargs are ignored.
     """
     # --- import input data
     if 'complete_data' in relevant_subnets[0]:  # return complete data
@@ -369,7 +370,7 @@ def get_simbench_net(sb_code_info:str, input_path:str=None):
     csv_data = get_extracted_csv_data(relevant_subnets, input_path)
     filter_unapplied_profiles(csv_data)
     filter_loadcases(csv_data)
-    net = csv_data2pp(csv_data)
+    net = csv_data2pp(csv_data) # *!* bug in csv_data2pp: bus_geodata is not set
 
     # --- remove switches if wanted by sb_code_info
     if not sb_code_parameters[6]:  # remove Switches

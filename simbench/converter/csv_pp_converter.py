@@ -771,7 +771,9 @@ def _get_parameters_to_rename_and_multiply():
 
     # --- get corresponding tables and dataframes
     corr_strings = _csv_table_pp_dataframe_correspondings(str)
-    csv_tablenames_, pp_dfnames = _csv_table_pp_dataframe_correspondings(list)
+    csv_tablenames_, pp_dfnames = _csv_table_pp_dataframe_correspondings(list) # *!* bug this call
+                                                                               # returns list with
+                                                                               # 'bus_geodata' key
 
     # --- initialize tuples_dict
     tuples_dict = dict.fromkeys(corr_strings, [("id", "name", None)])

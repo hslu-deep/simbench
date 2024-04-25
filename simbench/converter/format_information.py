@@ -30,7 +30,7 @@ def sb2pp_base(variable="power"):
 
 def csv_tablenames(which):
     """
-    Returns specific simbench csv format table names. which can be 'elements', res_elements,
+    Returns specific simbench csv format table names. which can be 'elements', 'res_elements',
     'profiles', 'types' or a list of these.
     """
     if isinstance(which, str):
@@ -58,7 +58,7 @@ def _csv_table_pp_dataframe_correspondings(type_):
     pp_dfnames = ['ext_grid', 'line', 'load', 'shunt', 'bus', 'measurement', 'gen', 'sgen',
                   'storage', 'substation', 'switch', 'trafo', 'trafo3w', 'bus_geodata',
                   'std_types|line', 'dcline', 'std_types|trafo', 'std_types|trafo3w',
-                  "res_bus"]
+                  "res_bus"] # *!* bug KeyError: 'bus_geodata'
     # append table name lists by combinations of generating elements
     csv_tablenames_ += ['ExternalNet', 'ExternalNet', 'PowerPlant', 'PowerPlant', 'RES', 'RES',
                         'ExternalNet', 'ExternalNet', 'Line']
